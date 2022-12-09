@@ -16,7 +16,7 @@ let package = Package(
         .binaryTarget(
                     name: "DragonMedicalSpeechKit",
                     url: "https://github.com/ravindra-psc/iossdk_xcframework/raw/main/0.0.3.zip",
-                    checksum: "9a000bc681b4e31dccfc6ee6eb1aa0a8b0e6145fdaad23957982cdb550208f61"
+                    checksum: "799b6f08ee5665c8979497d262495f781706f27110c3e4620243ac505375fe55"
                 ),
     ]
 )
