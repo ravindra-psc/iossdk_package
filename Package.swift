@@ -1,22 +1,36 @@
-// swift-tools-version:5.5
+// swift-tools-version:5.3
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
     name: "DragonMedicalSpeechKit",
+    defaultLocalization: "en",
+    platforms: [
+        .iOS(.v14)
+        ],
     products: [
-        // Products define the executables and libraries a package produces, and make them visible to other packages.
+        // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .library(
             name: "DragonMedicalSpeechKit",
-            targets: ["DragonMedicalSpeechKit"]),
+            targets: ["DragonMedicalSpeechKitBundle", "DragonMedicalSpeechKit"]
+        )
     ],
-    dependencies: [],
     targets: [
+        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
+        // Targets can depend on other targets in this package, and on products in packages which this package depends on.
+        .target(
+            name: "DragonMedicalSpeechKitBundle",
+            path: "Sources/SDK",
+            resources: [
+                .process("DragonMedicalSpeechKitBundle"),
+            ]
+        ),
         .binaryTarget(
                     name: "DragonMedicalSpeechKit",
-                    url: "https://github.com/ravindra-psc/iossdk_xcframework/raw/main/0.0.4.zip",
-                    checksum: "939b499b31242c65438621140743d96ef76d47c2be88bd6f183ee242fee782a5"
-                ),
+                    path: "Sources/SDK/DragonMedicalSpeechKit.zip"
+                )
     ]
 )
+
+//
